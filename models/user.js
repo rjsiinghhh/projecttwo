@@ -13,16 +13,3 @@ const User = mongoose.model('User', userSchema);
 
 
 module.exports = User
-
-
-/*
-  firstName: '',
-  lastName: '',
-  email: '',
-  address: '',
-  dateOfBirth: '',
-  gender:'',
-  phoneNumber: ''
-
-
-*/

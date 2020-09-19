@@ -1,5 +1,6 @@
 const express = require('express');
 const Bank = require('../models/bank.js');
+const User = require('../models/user.js')
 const router = express.Router();
 
 
@@ -170,14 +171,10 @@ router.get('/seedofwealth', (req, res) => {
 // User Info Seeeed
 
 router.get('/useseed', (req, res) => {
-  User.create(
-
-    (err, data) => {
-      res.redirect('/');
-    }
-  )
+res.render(
+  'edit.ejs'
+)
 });
-
 
 
 
