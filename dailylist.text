@@ -1,1 +1,27 @@
-today was good progress, got the data onto the index page, got the show page to show individual transactions. the edit page will not have anything to do with the transactions, so after i finish.
+good progress today, put the data on the home page... made the show page when each item is clicked.
+
+
+DELETE button will be added to the bills portion... I will add a button to the home page, named upcoming bills, and on bills.ejs, will be a form, that can be updated and deleted. In theory is a list of upcoming bills and when
+'paid' user will be able to delete that item off the list.
+
+need to do the log in, log out.. will NOT do a sign up form BECAUSE a set list of data has been pre created, so if a user made one, a whole list of Transactions would appear, in theory would not make any sense...
+
+
+About me, will be info about the user.. the basic, first name, last name, address, phone number, email address type stuff. I created the Schema, NOW just need to add it to the seed data. It should load with the transactions, but should not be shown on this page. It will have its own page, which with the button will show all that data, it will have the option to be EDITED. Only the EMAIL ADDRESS, HOME ADDRESS, and PHONE NUMBER....
+
+
+CSS WILL WORK ON ONCE I FINISH ALL THE FUNCTIONS, AS OF RIGHT NOW I HAVE 3 OR 4 OF THE ROUTES COMPLETED. I WILL BE USING TWO SCHEMAS, A FORM FOR THE BILLS. FOR THAT BILLS PAGE, I WILL USE A CHECKBOX, SO LOOK AT THE ISREADYTOEAT PIECE OF THE FRUITS EXAMPLE.. THAT SHOULD BE VERY HELPFUL WITH THIS....
+
+
+THURSDAY CREATED THE DATA... FORMED THE FILE STRUCTURE OF THE PROJECT, AND RENDERED A FEW PAGES TO MAKE SURE CONNECTION BETWEEN TEXT AND WEBSITE WAS CHILLLLLLLLIIIIINNNNNNNN. WE CHILLLLLLLLIIIIINNNNNNNN.
+
+FRIDAY 3 OR 4 ROUTES COMPLETED, INDEX PAGE HAS DATA.. SHOW PAGE FOR INDIVIDUAL TRANSACTIONS, BUTTONS WITH LINKS.
+
+
+SATURDAY.. FINISH ROUTES. GET THE OTHER SCHEMA INTO THE PAGE. GET ALL THE FUNCTIONS WORKING.
+
+SUNDAY. GET THE LOG IN PART INTO ACTION...
+
+MONDAY CSS... BOOTSTRAPS... WATCH A CODEACADEMY THANG ABOUT IT...
+
+TUESDAY CSS ... ANY FINAL TOUCHES ... THIS DAY WILL ALSO BE MOSTLY ABOUT CSS AND ALL CREATIVE ASPECTS OF PAGE ... TUESDAY PRACTICE PRESENTATION WITH ROOMATES? FUCK THAT ... LOL JK DO THAT, SHOULD BE HELPFUL. 
