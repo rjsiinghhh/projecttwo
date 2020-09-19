@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Our personal style sheet -->
+
+  <link rel="stylesheet" href="/styles/index.css" charset="utf-8">
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -9,13 +13,24 @@
   <h1> indexx</h1>
 
 
+
   <button>
-    <a href="/bankofcali/new">Add A Transaction
+    <a href="/bankofcali/:id/edit"> About Me </button>
     </a>
-  </button>
-  <button>
-    <a href="/bankofcali/:id/edit"> Edit Info </button>
+    <button>
+      <a href="/bankofcali/new">Add A Transaction
+    </button>
     </a>
+
+<button>
+  <a href="/bankofcali/bills"> Bills </button>
+   </a>
+
+
+
+
+
+
   <ul>
       <% for(let i = 0; i < entry.length; i++) { %>
     <li>

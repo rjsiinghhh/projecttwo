@@ -11,6 +11,4 @@ const bankSchema = new mongoose.Schema({
 const Bank = mongoose.model('Bank', bankSchema);
 
 
-
-
-module.exports = Bank
+module.exports = Bank;

@@ -149,6 +149,16 @@ router.get('/seedofwealth', (req, res) => {
         deposit: 0
       }
     ],
+    [
+      {
+        firstName: 'RJ',
+        lastName: 'Singh',
+        email: 'xsinghxarjun@gmail.com',
+        address: '23 Def Not Putting My Address Here Blvd, Dreamville, CA 92134',
+        dateOfBirth: 'August 13, 1993',
+        phoneNumber: '9167995611'
+      }
+    ],
     (err, data) => {
       res.redirect('/');
     }
@@ -159,18 +169,21 @@ router.get('/seedofwealth', (req, res) => {
 
 // User Info Seeeed
 
-/*
-router.get('/seedofwealth', (req, res) => {
-  Bank.create(
-    [
+router.get('/useseed', (req, res) => {
+  User.create(
 
-*/
+    (err, data) => {
+      res.redirect('/');
+    }
+  )
+});
+
 
 
 
 
 // index route
-router.get('/index', (req, res) => {
+router.get('/home', (req, res) => {
     Bank.find({}, (error, allBank) => {
         res.render(
             'index.ejs',
@@ -199,6 +212,12 @@ router.get('/:id', (req, res) => {
     })
 });
 
+
+//route to bills page
+
+router.get('/bills', (req, res) => {
+  res.render('bills.ejs');
+});
 // UPDATE, DELETE, AND EDIT ARE GOING TO WORK ONLY FOR USER INFORMATION , NOT TRANSACTIONS. FIRST I NEED TO GET THE OTHER DATA ONTO THE PAGE, THEN ADD THESE ROUTES
 
 
