@@ -8,7 +8,6 @@ const app = express ();
 const db = mongoose.connection;
 require('dotenv').config();
 //___________________
-//Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 1393;
@@ -20,8 +19,12 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
-);
+mongoose.connect('mongodb://localhost:27017/bankofwealth',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    });
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
@@ -38,12 +41,51 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 // Routes
+
+
+
+
+// THIS IS TO CONNECT WITH THE BANK CONTROLLER FILE // DOUBLE CHECK THE DATA
+
+
+const banksController = require('./controllers/banks.js');
+app.use('/bankofcali', banksController);
+
+
+
+
+
+
+
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+app.get('/bankofcali' , (req, res) => {
+  //res.send('Hello World!');
 });
 //___________________
 //Listener
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+
+
+
+
+
+// MORNING WOKK, FIRST FOLLOW THE TEMPLATE TO GET MY PROJECT WOKRING THE SAME WAY THE FRUITS PAGE WAS WOKRING, THEEEENNNNN MESS WITH IT TO GET THE LOG IN LOG OUT STUFF ON THE PAGE...
+
+
+// FRIDAY MORNING, IF TOMORROW IS REVIEW DAY, OR CATCH UP DAY, FIX CAP'S LOG AND RESUBMIT.
+
+// // FRIDAY GOALS ... GET PAGE WORKING.. IN THE SENSE GET THE BASIC CRUD APPS. PRETTY MUCH WRITE MY CODE TO DO THE BASICS, BUT GET THE 7 ROUTES ON TO THE PAGE. DATA IS ALREADY CREATED, DONT WORRY ABOUT HOW IT LOOKS AT ALL.
+
+// SATURDAY, IF NOT FINISHED, 7 ROUTES MUST BE ON THE PAGE AND WORKING... SAT AND SUNDAY, USE THE SECOND FRUITS PAGE, WEEK 6 DAY 3 TO CONFIGURE A LOG IN, PASSWORD PEIECE TO MY PAGE. SPEND SAT AND SUNDAY GETTING THAT DONE
+
+// MONDAY, BY MONDAY MORNING, OR SUNDAY NIGHT THE ABSOLULTE BASICS OF MY APP SHOULD BE COMPLETELY DONE. MONDAY IS ALL ABOUT CSS
+
+// TUESDAY IS ALL ABOUT CSS
+
+// WEDS IS PRESENTATION
+
+
+// STAY ON SCHDULE.....!

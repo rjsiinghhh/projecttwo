@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  <h1> indexx</h1>
+  <ul>
+      <% for(let i = 0; i < entry.length; i++) { %>
+    <li>
+
+        <br>
+        <a href="/bankofcali/<%=entry[i].id%>">
+        <%=entry[i].invoice%><br>
+      </a>
+        <%=entry[i].date%><br>
+        <%=entry[i].description%><br>
+        $<%=entry[i].withdrawl%><br>
+        $<%=entry[i].deposit%><br>
+          </a>
+        </li>
+<% } %>
+</ul>
+
+<button>
+          <a href="/bankofcali/new">Add A Transaction</a>
+        </button>
+
+
+<button>
+  <a href="/bankofcali/:id/edit"> Edit Info </button>
+  </body>
+</html>
