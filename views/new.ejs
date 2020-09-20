@@ -11,9 +11,21 @@
     <title></title>
   </head>
   <body>
-    this is where the user can add a new transaction to the list
+  <h1> Add A Transaction </h1>
+
+    <form action="/bankofcali/home" method="POST">
+          Invoice #  <input type="number" name+'invoice' value="Invoice #" /><br/>
+
+            Description <input type="text" name="" value="" /><br/>
+               -$<input type="number" name="withdrawl" value="0" /><br/>
+                +$<input type="number" name="deposit" value="0"/><br/>
+             <input type="date" name="date" /><br/>
+             <input type="submit" value="Add Transaction"/>
+
+
+          </form>
+
+
+
   </body>
 </html>
-
-
-// add a form to add transaction

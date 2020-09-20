@@ -215,3 +215,69 @@ const Bank = mongoose.model('Bank', bankSchema);
 
 
 module.exports = Banks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const mongoose = require('mongoose');
+
+
+
+const userSchema = new.mongoose.Schema ({
+  first: {type: String, required: true},
+  last: {type: String, required: true},
+  email: {type: String, required: true},
+  dob: {type: String, required: true},
+  address: {type: String, required: true},
+  number: {type: String, required: true}
+
+})
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
+
+
+
+{
+  first: 'RJ',
+  last: 'Singh',
+  email: 'xsinghxarjun@gmail.com',
+  address: '23 Def Not Putting My Address Here Blvd, Dreamville, CA 92134',
+  dob: 'August 13, 1993',
+  number: '9167995611'
+}
+],
+(err, data) => {
+res.redirect('/');
+}
+)
+});

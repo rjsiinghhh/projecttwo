@@ -7,10 +7,22 @@
     <title></title>
   </head>
   <body>
-<h1> This page will be a checklist of bills, and the ability to check bills of a list and givin the ability to DELETE item off list</h1>
+        <h1>Unpaid Bills</h1>
+        <ul>
+          <% for(let i = 0; i < bills.length; i++) { %>
+              <li>
+                  <a href="/bankofcali/listofbills/<%=bills[i].id%>">
+                      <%=bills[i].bill;%>
+                  </a>
+                  <form action="/bankofcali/listofbills/<%=bills[i].id%>?_method=DELETE" method="POST">
+                      <input type="submit" value="DELETE"/>
+                  </form>
 
-
-
-
-  </body>
+              </li>
+          <% } %>
+      </ul>
+        <nav>
+              <a href="/listofbills/new">Add Another Bill?</a>
+          </nav>
+    </body>
 </html>
