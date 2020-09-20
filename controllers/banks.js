@@ -292,15 +292,51 @@ router.get('/bills', (req, res)=> {
     [
       {
         bill: 'PG&E',
-        amount: 319
+        amount: 319,
+        dueDate: 'September 15, 2020',
+        autoPay: true
       },
       {
         bill: 'Water Bill',
-        amount: 48
+        amount: 48,
+        dueDate: 'September 13, 2020',
+        autoPay: true
       },
       {
-        bill: 'Car Note',
-        amount: 17000
+        bill: 'Rolls Royce Car Note',
+        amount: 7000,
+        dueDate: 'September 15, 2020',
+        autoPay: false
+      },
+      {
+        bill: 'Fancy Gym Membership',
+        amount: 500,
+        dueDate: 'September 8, 2020',
+        autoPay: true
+      },
+      {
+        bill: 'General Assembly Tution',
+        amount: 1450,
+        dueDate: 'September 3, 2020',
+        autoPay: false
+      },
+      {
+        bill: 'Parking Ticket',
+        amount: 39.40,
+        dueDate: 'September 10, 2020',
+        autoPay: false
+      },
+      {
+        bill: 'Ferrari Car Note',
+        amount: 9000,
+        dueDate: 'September 15, 2020',
+        autoPay: false
+      },
+      {
+        bill: 'American Express',
+        amount: 21000,
+        dueDate: 'September 13, 2020',
+        autoPay: true
       }
     ],
     (err, data) => {
