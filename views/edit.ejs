@@ -2,15 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 
-      <link rel="stylesheet" href="./styles/edit.css" charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+
+  <link rel="stylesheet" href="./styles/show.css" charset="utf-8">
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-<h1> Arjun</h1>
+    <form action="/bankofcali/<%=entry.id%>?_method=PUT" method="POST">
+                Name: <input type="text" name="name" value="<%=entry.first%>"/><br/>
+                Color: <input type="text" name="color" value="<%=entry.last%>"/><br/>
+                <% } %>
+                  />
 
+<button>
+  <a href="/bankofcali/home"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+</button>
+</a>
 
   </body>
 </html>

@@ -13,12 +13,12 @@
   <body>
   <h1> Unpaid Bill? Add It To The List</h1>
 
-    <form action="/bankofcali/home" method="POST">
+    <form action="/bankofcali/listofbills?_method=POST" method="POST">
 
             Who's It From?<input type="text" name="" value="" /><br/>
                How Much? $<input type="number" name="amount" value="0" /><br/>
                 When's It Due? <input type="date" name="dueDate" value="0"/><br/>
-              AutoPay? <input type="checkbox" name="" /><br/>
+            
              <input type="submit" value="Add It!"/>
 
 

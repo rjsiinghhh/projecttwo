@@ -3,12 +3,16 @@ const Bank = require('../models/bank.js');
 const Bills = require('../models/bill.js')
 const router = express.Router();
 
-
+router.delete('/listofbills/:id', (req, res) => {
+    Bills.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/bankofcali/listofbills');
+    })
+});
 
 // user seed data
 
 
-
+// create route
 
 
 router.get('/seedofwealth', (req, res) => {
@@ -262,7 +266,7 @@ router.get('/seedofwealth', (req, res) => {
   )
 });
 
-// user seed which doesnt fucking work without breaking the fucking page
+
 /*
 router.get('/seeduser', (req, res) =>{
   User.create(
@@ -293,54 +297,50 @@ router.get('/bills', (req, res)=> {
       {
         bill: 'PG&E',
         amount: 319,
-        dueDate: 'September 15, 2020',
-        autoPay: true
+        dueDate: 'September 15, 2020'
       },
       {
         bill: 'Water Bill',
         amount: 48,
-        dueDate: 'September 13, 2020',
-        autoPay: true
+        dueDate: 'September 13, 2020'
+
       },
       {
         bill: 'Rolls Royce Car Note',
         amount: 7000,
-        dueDate: 'September 15, 2020',
-        autoPay: false
+        dueDate: 'September 15, 2020'
       },
       {
         bill: 'Fancy Gym Membership',
         amount: 500,
-        dueDate: 'September 8, 2020',
-        autoPay: true
+        dueDate: 'September 8, 2020'
       },
       {
         bill: 'General Assembly Tution',
         amount: 1450,
-        dueDate: 'September 3, 2020',
-        autoPay: false
+        dueDate: 'September 3, 2020'
       },
       {
         bill: 'Parking Ticket',
         amount: 39.40,
-        dueDate: 'September 10, 2020',
-        autoPay: false
+        dueDate: 'September 10, 2020'
+
       },
       {
         bill: 'Ferrari Car Note',
         amount: 9000,
-        dueDate: 'September 15, 2020',
-        autoPay: false
+        dueDate: 'September 15, 2020'
+
       },
       {
         bill: 'American Express',
         amount: 21000,
-        dueDate: 'September 13, 2020',
-        autoPay: true
+        dueDate: 'September 13, 2020'
+
       }
     ],
     (err, data) => {
-      res.redirect('/')
+      res.redirect('/bankofcali/listofbills3')
     }
   )
 });
@@ -357,6 +357,10 @@ router.get('/listofbills', (req, res) => {
     })
   });
 
+
+
+
+
 // this route takes you to the home page, with all the transactions
 router.get('/home', (req, res) => {
     Bank.find({}, (error, allBank) => {
@@ -370,8 +374,10 @@ router.get('/home', (req, res) => {
 });
 
 //this route leads you to a page to create a new transaction to the list
-router.get('/new' ,(req, res) => {
-  res.render('new.ejs');
+router.get('/listofbills/new' ,(req, res) => {
+  res.render(
+    'new.ejs'
+  );
 });
 
 // this route shows individual transactions when invoice number is clicked...
@@ -387,6 +393,17 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/listofbills/:id', (req, res) => {
+  Bills.findById(req.params.id, (error, foundBills) => {
+    res.render(
+      'showbills.ejs',
+      {
+        bills: foundBills
+      }
+  );
+})
+});
+
 
 
 // UPDATE, DELETE, AND EDIT ARE GOING TO WORK ONLY FOR USER INFORMATION , NOT TRANSACTIONS. FIRST I NEED TO GET THE OTHER DATA ONTO THE PAGE, THEN ADD THESE ROUTES
@@ -394,6 +411,8 @@ router.get('/:id', (req, res) => {
 
 // edit user info page
 // need to be changed!!!!!! to USER INFORMATION
+
+
 router.get('/:id/edit', (req, res) => {
   Bank.findById(req.params.id, (error, foundBank)=> {
     res.render(
@@ -401,24 +420,36 @@ router.get('/:id/edit', (req, res) => {
     )
   });
 });
+/*
 
+router.put('/listofbills:id', (req, res) => {
+    if(req.body.dueDate === 'on'){
+        req.body.dueDate = true;
+    } else {
+        req.body.dueDate = false;
+    }
+    Bills.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new:true},
+        (err, updatedModel) => {
+            res.redirect('/listofbills');
+        }
+    )
+})
 
+*/
 
 // post a transaction route
 
-router.post('/'), (req, res) => {
-  Bank.create(req.body, (error, createdBank) => {
-    res.redirect('/bankofcali')
-  })
-};
+router.post('/listofbills', (req, res) => {
+
+        res.redirect('/bankofcali/listofbills')
+
+})
 
 
 
-router.delete('/listofbills/:id', (req, res) => {
-    Bills.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/listofbills');
-    })
-});
 
 
 
@@ -437,6 +468,16 @@ router.delete('/:id/edit', (req, res) => {
 
 
 
+router.get('/:id/edit', (req, res) => {
+    Banks.findById(req.params.id, (error, foundBanks) => {
+        res.render(
+            'edit.ejs',
+            {
+                banks:foundBanks
+            }
+        );
+    })
+});
 
 
 

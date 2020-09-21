@@ -67,16 +67,18 @@ TUESDAY CSS ... ANY FINAL TOUCHES ... THIS DAY WILL ALSO BE MOSTLY ABOUT CSS AND
 
 INDEX ROUTE....  index is the transaction list on the "home" page
 another index will be on the "list of bills" page.
+-transaction list
+- bill list
 
-NEW .... BILL LIST, ability to fill form for new bill that needs to be paid ...
+index list of bills/ transaction  X
+
+new X
+
+create
+
+show X
+
+edit
 
 
-CREATE ... BILL LIST. WIll be created new data, and put into the list of bills. and ALSO ADD TRANSACT
-
-EDIT -  ABOUT ME SECTION, CERTAIN SECTIONS, LIKE EMAIL ADDRESS AND ADDRESS, PHONE NUMBER IS GOING TO BE OPEN TO BE EDITED 
-
-UPDATE .... BILL LIST, 3 given bills will be put onto the page, but form will be connected, and new bills will be added to data set
-
-DELETE ... Will give option to DELETE bills from bill list once paid....
-
-SHOW ... Route will be used to look at individual transactions and Bills.
+delete X

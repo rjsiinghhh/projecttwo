@@ -4,8 +4,7 @@ const billSchema = new mongoose.Schema(
     {
         bill: { type: String, required: true },
         amount: { type: Number, required: true },
-        dueDate: {type: String, required: true},
-        autoPay: Boolean
+        dueDate: {type: String, required: true}
 });
 
 const Bills = mongoose.model('Bills', billSchema);
