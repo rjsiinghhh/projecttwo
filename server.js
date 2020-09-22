@@ -20,7 +20,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect('mongodb://localhost:27017/bankofwealth',
+mongoose.connect(MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

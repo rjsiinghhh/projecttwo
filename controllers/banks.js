@@ -22,6 +22,17 @@ router.delete('/listofbills/:id', (req, res) => {
 
 
 
+router.put('/bills/put/:id', (req, res) => {
+  Bills.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new: true},
+    (err, updatedModel) => {
+      res.redirect('/bankofcali/listofbills')
+    }
+  )
+})
+
 
 router.get('/new', (req, res) => {
   res.render(
@@ -30,7 +41,7 @@ router.get('/new', (req, res) => {
   )
 })
 
-// EDIT
+
 router.get('/bankofcali/:id/edit', isAuthenticated, (req, res) => {
   Bank.findById(req.params.id, (error, foundBank) => {
     res.render('views/edit.ejs', {
@@ -39,9 +50,9 @@ router.get('/bankofcali/:id/edit', isAuthenticated, (req, res) => {
     })
   })
 })
-
-
 /*
+
+
 router.get('/:id', (req, res) => {
   if(req.session.currentUser){
   Bank.findById(req.params.id, (error, foundBank) => {
@@ -55,8 +66,8 @@ router.get('/:id', (req, res) => {
 }
 })
 
-*/
 
+*/
 
 
 router.get('/seedofwealth', (req, res) => {
@@ -384,7 +395,7 @@ router.get('/bills', (req, res)=> {
       }
     ],
     (err, data) => {
-      res.redirect('/bankofcali/listofbills3')
+      res.redirect('/bankofcali/listofbills')
     }
   )
 });
@@ -417,14 +428,12 @@ router.get('/home', (req, res) => {
     })
 });
 
-//this route leads you to a page to create a new transaction to the list
 router.get('/listofbills/new' ,(req, res) => {
   res.render(
     'new1.ejs'
   );
 });
 
-// this route shows individual transactions when invoice number is clicked...
 
 router.get('/:id', (req, res) => {
     Bank.findById(req.params.id, (error, foundBank) => {
@@ -450,10 +459,13 @@ router.get('/listofbills/:id', (req, res) => {
 
 
 
-router.get('/:id/edit', (req, res) => {
-  Bank.findById(req.params.id, (error, foundBank)=> {
+router.get('/:id/edit/bills', (req, res) => {
+  Bills.findById(req.params.id, (error, foundBills)=> {
     res.render(
-      'edit.ejs'
+      'edit.ejs',
+      {
+        bills: foundBills
+      }
     )
   });
 });
@@ -461,9 +473,10 @@ router.get('/:id/edit', (req, res) => {
 
 
 
-router.post('/listofbills', (req, res) => {
+router.post('/listofbills/post', (req, res) => {
+  console.log(req.body);
   Bills.create(req.body, (error, createdBills)=>{
-    res.redirect('/listofbills')
+    res.redirect('/bankofcali/listofbills')
   })
 })
 
@@ -473,20 +486,6 @@ router.post('/listofbills', (req, res) => {
 
 
 
-
-
-
-
-router.get('/:id/edit', (req, res) => {
-    Banks.findById(req.params.id, (error, foundBanks) => {
-        res.render(
-            'edit.ejs',
-            {
-                banks:foundBanks
-            }
-        );
-    })
-});
 
 
 

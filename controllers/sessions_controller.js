@@ -10,7 +10,7 @@ sessions.get('/new', (req, res) => {
 })
 
 // on sessions form submit (log in)
-sessions.post('/bankofcali', (req, res) => {
+sessions.post('/', (req, res) => {
   // username is found and password matches
   // successful log in
 
@@ -38,7 +38,7 @@ sessions.post('/bankofcali', (req, res) => {
         // add the user to our session
         req.session.currentUser = foundUser
         // redirect back to our home page
-        res.redirect('/bankofcali')
+        res.redirect('/')
       } else {
         // passwords do not match
         res.send('<a href="/"> password does not match </a>')
@@ -47,9 +47,9 @@ sessions.post('/bankofcali', (req, res) => {
   })
 })
 
-sessions.delete('/bankofcali', (req, res) => {
+sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/bankofcali')
+    res.redirect('/')
   })
 })
 
