@@ -55,27 +55,26 @@ app.use(
 )
 
 
+const banksController = require('./controllers/banks.js');
+app.use('/bankofcali', banksController);
 
 //___________________
 // Routes
-
-
-
+/*
+const banksRouter = require('./routes/bankdata');
+app.use('/', banksRouter);
+const billsRouter = require('./routes/billsdata');
+app.use('/', billsRouter);
+const listRouter = require('./routes/listofbills');
+app.use('/', listRouter);
+*/
 
 // THIS IS TO CONNECT WITH THE BANK CONTROLLER FILE // DOUBLE CHECK THE DATA
 
 
-const banksController = require('./controllers/banks.js');
-app.use('/bankofcali', banksController);
 
 
 
-const userController = require('./controllers/users_controller.js')
-app.use('/users', userController)
-
-const sessionsController = require('./controllers/sessions_controller.js')
-
-app.use('/sessions', sessionsController)
 
 
 
