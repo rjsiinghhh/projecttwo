@@ -3,16 +3,60 @@ const Bank = require('../models/bank.js');
 const Bills = require('../models/bill.js')
 const router = express.Router();
 
+
+const isAuthenticated = (req, res, next) => {
+  if(req.session.currentUser){
+    return next()
+  }else{
+    res.redirect('/sessions/new')
+  }
+};
+
+
 router.delete('/listofbills/:id', (req, res) => {
     Bills.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/bankofcali/listofbills');
     })
 });
 
-// user seed data
 
 
-// create route
+
+
+router.get('/new', (req, res) => {
+  res.render(
+    'users/new.ejs',
+    {currentUser: req.session.currentUser}
+  )
+})
+
+// EDIT
+router.get('/bankofcali/:id/edit', isAuthenticated, (req, res) => {
+  Bank.findById(req.params.id, (error, foundBank) => {
+    res.render('views/edit.ejs', {
+      entry: foundBank,
+      currentUser: req.session.currentUser
+    })
+  })
+})
+
+
+/*
+router.get('/:id', (req, res) => {
+  if(req.session.currentUser){
+  Bank.findById(req.params.id, (error, foundBank) => {
+    res.render('views/edit.ejs', {
+      entry: foundBank,
+      currentUser: req.session.currentUser
+    })
+  })
+} else {
+  res.redirect('/sessions/new')
+}
+})
+
+*/
+
 
 
 router.get('/seedofwealth', (req, res) => {
@@ -376,7 +420,7 @@ router.get('/home', (req, res) => {
 //this route leads you to a page to create a new transaction to the list
 router.get('/listofbills/new' ,(req, res) => {
   res.render(
-    'new.ejs'
+    'new1.ejs'
   );
 });
 
@@ -406,13 +450,6 @@ router.get('/listofbills/:id', (req, res) => {
 
 
 
-// UPDATE, DELETE, AND EDIT ARE GOING TO WORK ONLY FOR USER INFORMATION , NOT TRANSACTIONS. FIRST I NEED TO GET THE OTHER DATA ONTO THE PAGE, THEN ADD THESE ROUTES
-
-
-// edit user info page
-// need to be changed!!!!!! to USER INFORMATION
-
-
 router.get('/:id/edit', (req, res) => {
   Bank.findById(req.params.id, (error, foundBank)=> {
     res.render(
@@ -420,48 +457,20 @@ router.get('/:id/edit', (req, res) => {
     )
   });
 });
-/*
 
-router.put('/listofbills:id', (req, res) => {
-    if(req.body.dueDate === 'on'){
-        req.body.dueDate = true;
-    } else {
-        req.body.dueDate = false;
-    }
-    Bills.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {new:true},
-        (err, updatedModel) => {
-            res.redirect('/listofbills');
-        }
-    )
-})
 
-*/
 
-// post a transaction route
 
 router.post('/listofbills', (req, res) => {
-
-        res.redirect('/bankofcali/listofbills')
-
-})
-
-
-
-
-
-
-
-//
-/*
-router.delete('/:id/edit', (req, res) => {
-  Bank.findByIdAndRemove(req.params.id, (err, data) => {
-    res.redirect('/bankofcali')
+  Bills.create(req.body, (error, createdBills)=>{
+    res.redirect('/listofbills')
   })
 })
-*/
+
+
+
+
+
 
 
 
@@ -485,6 +494,7 @@ router.get('/:id/edit', (req, res) => {
 
 
 
+
 // $('div').on('click', () => {
 //     console.log('bar');
 // })
@@ -496,3 +506,8 @@ router.get('/:id/edit', (req, res) => {
 
 
 module.exports = router;
+
+
+
+
+//SUNDAY TW0 MORE ROUTES FOR MONDAY TUESDAY.. LOG IN NEEDS TO GET DONE, CSS ON TUESDAY
