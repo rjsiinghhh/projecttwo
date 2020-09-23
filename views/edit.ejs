@@ -20,12 +20,15 @@
 
         <div class ="text-center">
 
-          <h1> Unpaid Bill? Add It To The List</h1>
+          <h1> Error on the Bill? Fix it here!</h1>
 
             <form action="/bankofcali/listofbills/post" method="POST">
-
+              <div class="text-center jumbotron jumbotron-fluid">
+                <div class="box" style="border:solid 1px black; width: 50%; align-items:center; margin:auto; color: maroon;" >
                     Who's It From?<input type="text" name="bill" value="" /><br/>
                     How Much? $<input type="number" name="amount" value="0" /><br/>
                      <input type="submit" value="Add It!"/>
+                   </div>
+                 </div>
     </body>
 </html>
