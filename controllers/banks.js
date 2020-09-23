@@ -346,7 +346,7 @@ router.get('/seeduser', (req, res) =>{
 
 
 // Upcoming bills route! this route takes you the bills.ejs page
-router.get('/bills', (req, res)=> {
+router.get('/listofbills/bills', (req, res)=> {
   Bills.create(
     [
       {
@@ -459,7 +459,7 @@ router.get('/listofbills/:id', (req, res) => {
 
 
 
-router.get('/:id/edit/bills', (req, res) => {
+router.get('/:id/edit/', (req, res) => {
   Bills.findById(req.params.id, (error, foundBills)=> {
     res.render(
       'edit.ejs',

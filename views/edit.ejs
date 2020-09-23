@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+      <!-- JQuery -->
+<script type=“text/javascript” src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js”></script>
+<!-- Bootstrap tooltips -->
+<script type=“text/javascript” src=“https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js”></script>
+<!-- Bootstrap core JavaScript -->
+<script type=“text/javascript” src=“https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js”>
+</script>
+<!-- MDB core JavaScript -->
+<script type=“text/javascript” src=“https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js”></script>
+<!-- Font Awesome Icons -->
+<link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.14.0/css/all.css”>
+<script src=“https://kit.fontawesome.com/183e710af3.js” crossorigin=“anonymous”></script>
         <meta charset="utf-8">
         <title></title>
     </head>
     <body>
-        <h1>Edit Bills Page</h1>
-        <form action="/bankofcali/bills/put/<%=bills.id%>?_method=PUT" method="POST">
-            Name: <input type="text" name="name" value="<%=bills.bill%>"/><br/>
-            Color: <input type="text" name="color" value="<%=bills.amount%>"/><br/>
-            Is Ready to Eat:
 
-            <input type="submit" value="Submit Changes" />
-        </form>
+        <div class ="text-center">
+
+          <h1> Unpaid Bill? Add It To The List</h1>
+
+            <form action="/bankofcali/listofbills/post" method="POST">
+
+                    Who's It From?<input type="text" name="bill" value="" /><br/>
+                    How Much? $<input type="number" name="amount" value="0" /><br/>
+                     <input type="submit" value="Add It!"/>
     </body>
 </html>
