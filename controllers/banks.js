@@ -3,7 +3,7 @@ const Bank = require('../models/bank.js');
 const Bills = require('../models/bill.js')
 const router = express.Router();
 
-
+/*
 const isAuthenticated = (req, res, next) => {
   if(req.session.currentUser){
     return next()
@@ -12,6 +12,7 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
+*/
 
 router.delete('/listofbills/:id', (req, res) => {
     Bills.findByIdAndRemove(req.params.id, (err, data) => {
